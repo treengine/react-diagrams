@@ -1,6 +1,6 @@
 import { Action, ActionEvent, InputType } from '../core-actions/Action';
 import { KeyboardEvent } from 'react';
-import * as _ from 'lodash';
+import * as isEqual from 'lodash/isEqual';
 
 export interface DeleteItemsActionOptions {
 	keyCodes?: number[];
@@ -31,8 +31,8 @@ export class DeleteItemsAction extends Action {
 			fire: (event: ActionEvent<KeyboardEvent>) => {
 				const { keyCode, ctrlKey, shiftKey, altKey, metaKey } = event.event;
 
-				if (keyCodes.indexOf(keyCode) !== -1 && _.isEqual({ ctrlKey, shiftKey, altKey, metaKey }, modifiers)) {
-					_.forEach(this.engine.getModel().getSelectedEntities(), (model) => {
+				if (keyCodes.indexOf(keyCode) !== -1 && isEqual({ ctrlKey, shiftKey, altKey, metaKey }, modifiers)) {
+					this.engine.getModel().getSelectedEntities().forEach(model => {
 						// only delete items which are not locked
 						if (!model.isLocked()) {
 							model.remove();

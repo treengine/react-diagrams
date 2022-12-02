@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import {
 	BaseEntity,
 	BaseEntityEvent,
@@ -10,6 +9,7 @@ import {
 import { LayerModel } from '../layer/LayerModel';
 import { BaseModel } from '../../core-models/BaseModel';
 import { CanvasEngine } from '../../CanvasEngine';
+import * as flatMap from 'lodash/flatMap';
 
 export interface DiagramListener extends BaseEntityListener {
 	offsetUpdated?(event: BaseEntityEvent<CanvasModel> & { offsetX: number; offsetY: number }): void;
@@ -47,26 +47,26 @@ export class CanvasModel<G extends CanvasModelGenerics = CanvasModelGenerics> ex
 	}
 
 	getSelectionEntities(): BaseModel[] {
-		return _.flatMap(this.layers, (layer) => {
+		return flatMap(this.layers, (layer) => {
 			return layer.getSelectionEntities();
 		});
 	}
 
 	getSelectedEntities(): BaseModel[] {
-		return _.filter(this.getSelectionEntities(), (ob) => {
+		return this.getSelectionEntities().filter(ob => {
 			return ob.isSelected();
 		});
 	}
 
 	clearSelection() {
-		_.forEach(this.getSelectedEntities(), (element) => {
+		this.getSelectedEntities().forEach(element => {
 			element.setSelected(false);
 		});
 	}
 
 	getModels(): BaseModel[] {
-		return _.flatMap(this.layers, (layer) => {
-			return _.values(layer.getModels());
+		return flatMap(this.layers, (layer) => {
+			return Object.values(layer.getModels());
 		});
 	}
 
@@ -144,7 +144,7 @@ export class CanvasModel<G extends CanvasModelGenerics = CanvasModelGenerics> ex
 		this.options.offsetY = event.data.offsetY;
 		this.options.zoom = event.data.zoom;
 		this.options.gridSize = event.data.gridSize;
-		_.forEach(event.data.layers, (layer) => {
+		event.data.layers.forEach((layer) => {
 			const layerOb = event.engine.getFactoryForLayer(layer.type).generateModel({
 				initialConfig: layer
 			});
@@ -163,7 +163,7 @@ export class CanvasModel<G extends CanvasModelGenerics = CanvasModelGenerics> ex
 			offsetY: this.options.offsetY,
 			zoom: this.options.zoom,
 			gridSize: this.options.gridSize,
-			layers: _.map(this.layers, (layer) => {
+			layers: this.layers.map(layer => {
 				return layer.serialize();
 			})
 		};

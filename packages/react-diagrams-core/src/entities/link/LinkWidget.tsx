@@ -2,7 +2,6 @@ import * as React from 'react';
 import { DiagramEngine } from '../../DiagramEngine';
 import { LinkModel } from './LinkModel';
 import { PointModel } from './PointModel';
-import * as _ from 'lodash';
 import { LabelWidget } from '../label/LabelWidget';
 import { BaseEntityEvent, BasePositionModel, ListenerHandle, PeformanceWidget } from '@projectstorm/react-canvas-core';
 import { PortModel } from '../port/PortModel';
@@ -107,7 +106,7 @@ export class LinkWidget extends React.Component<LinkProps, LinkState> {
 					return (
 						<g data-linkid={this.props.link.getID()}>
 							{this.props.diagramEngine.generateWidgetForLink(link)}
-							{_.map(this.props.link.getLabels(), (labelModel, index) => {
+							{this.props.link.getLabels().map((labelModel, index) => {
 								return (
 									<LabelWidget
 										key={labelModel.getID()}

@@ -1,5 +1,4 @@
 import { State } from './State';
-import * as _ from 'lodash';
 import { CanvasEngine } from '../CanvasEngine';
 import { BaseEvent, BaseListener, BaseObserver } from '../core/BaseObserver';
 
@@ -29,7 +28,7 @@ export class StateMachine extends BaseObserver<StateMachineListener> {
 
 	popState() {
 		this.stateStack.pop();
-		this.setState(_.last(this.stateStack));
+		this.setState(this.stateStack[this.stateStack.length - 1]);
 	}
 
 	setState(state: State) {

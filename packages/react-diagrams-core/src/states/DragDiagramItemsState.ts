@@ -1,5 +1,4 @@
 import { Action, ActionEvent, InputType, MoveItemsState } from '@projectstorm/react-canvas-core';
-import * as _ from 'lodash';
 import { PointModel } from '../entities/link/PointModel';
 import { DiagramEngine } from '../DiagramEngine';
 import { PortModel } from '../entities/port/PortModel';
@@ -15,7 +14,7 @@ export class DragDiagramItemsState extends MoveItemsState<DiagramEngine> {
 				fire: (event: ActionEvent<MouseEvent>) => {
 					const item = this.engine.getMouseElement(event.event);
 					if (item instanceof PortModel) {
-						_.forEach(this.initialPositions, (position) => {
+            Object.values(this.initialPositions).forEach((position) => {
 							if (position.item instanceof PointModel) {
 								const link = position.item.getParent() as LinkModel;
 

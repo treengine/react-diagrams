@@ -1,10 +1,11 @@
 import { BaseModel, BaseModelGenerics, BaseModelOptions } from '../../core-models/BaseModel';
 import { CanvasModel } from '../canvas/CanvasModel';
-import * as _ from 'lodash';
 import { CanvasEngine } from '../../CanvasEngine';
 import { FactoryBank } from '../../core/FactoryBank';
 import { AbstractModelFactory } from '../../core/AbstractModelFactory';
 import { DeserializeEvent } from '../../core-models/BaseEntity';
+import * as mapValues from 'lodash/mapValues';
+import * as flatMap from 'lodash/flatMap';
 
 export interface LayerModelOptions extends BaseModelOptions {
 	isSvg?: boolean;
@@ -37,7 +38,7 @@ export abstract class LayerModel<G extends LayerModelGenerics = LayerModelGeneri
 		super.deserialize(event);
 		this.options.isSvg = !!event.data.isSvg;
 		this.options.transformed = !!event.data.transformed;
-		_.forEach(event.data.models, (model) => {
+    Object.values(event.data.models).forEach(event.data.models, (model) => {
 			const modelOb = this.getChildModelFactoryBank(event.engine).getFactory(model.type).generateModel({
 				initialConfig: model
 			});
@@ -54,7 +55,7 @@ export abstract class LayerModel<G extends LayerModelGenerics = LayerModelGeneri
 			...super.serialize(),
 			isSvg: this.options.isSvg,
 			transformed: this.options.transformed,
-			models: _.mapValues(this.models, (model) => {
+			models: mapValues(this.models, (model) => {
 				return model.serialize();
 			})
 		};
@@ -81,7 +82,7 @@ export abstract class LayerModel<G extends LayerModelGenerics = LayerModelGeneri
 	}
 
 	getSelectionEntities(): Array<BaseModel> {
-		return _.flatMap(this.models, (model) => {
+		return flatMap(this.models, (model) => {
 			return model.getSelectionEntities();
 		});
 	}

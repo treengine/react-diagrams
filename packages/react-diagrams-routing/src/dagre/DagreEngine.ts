@@ -1,6 +1,5 @@
 import { DiagramModel, PointModel } from '@projectstorm/react-diagrams-core';
 import * as dagre from 'dagre';
-import * as _ from 'lodash';
 import { GraphLabel } from 'dagre';
 import { Point } from '@projectstorm/geometry';
 
@@ -31,11 +30,11 @@ export class DagreEngine {
 		});
 
 		// set nodes
-		_.forEach(model.getNodes(), (node) => {
+    model.getNodes().forEach((node) => {
 			g.setNode(node.getID(), { width: node.width, height: node.height });
 		});
 
-		_.forEach(model.getLinks(), (link) => {
+    model.getLinks().forEach((link) => {
 			// set edges
 			if (link.getSourcePort() && link.getTargetPort()) {
 				g.setEdge({

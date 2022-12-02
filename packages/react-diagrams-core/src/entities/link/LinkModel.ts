@@ -1,6 +1,5 @@
 import { PortModel } from '../port/PortModel';
 import { PointModel } from './PointModel';
-import * as _ from 'lodash';
 import { LabelModel } from '../label/LabelModel';
 import { DiagramEngine } from '../../DiagramEngine';
 import { DiagramModel } from '../../models/DiagramModel';
@@ -55,7 +54,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 
 	getBoundingBox(): Rectangle {
 		return Polygon.boundingBoxFromPoints(
-			_.map(this.points, (point: PointModel) => {
+      this.points.map((point: PointModel) => {
 				return point.getPosition();
 			})
 		);
@@ -63,22 +62,22 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 
 	getSelectionEntities(): Array<BaseModel> {
 		if (this.getTargetPort() && this.getSourcePort()) {
-			return super.getSelectionEntities().concat(_.slice(this.points, 1, this.points.length - 1));
+			return super.getSelectionEntities().concat(this.points.slice(1, this.points.length - 1));
 		}
 		// allow selection of the first point
 		if (!this.getSourcePort()) {
-			return super.getSelectionEntities().concat(_.slice(this.points, 0, this.points.length - 1));
+			return super.getSelectionEntities().concat(this.points.slice(0, this.points.length - 1));
 		}
 		// allow selection of the last point
 		if (!this.getTargetPort()) {
-			return super.getSelectionEntities().concat(_.slice(this.points, 1, this.points.length));
+			return super.getSelectionEntities().concat(this.points.slice(1, this.points.length));
 		}
 		return super.getSelectionEntities().concat(this.points);
 	}
 
 	deserialize(event: DeserializeEvent<this>) {
 		super.deserialize(event);
-		this.points = _.map(event.data.points || [], (point) => {
+		this.points = (event.data.points || []).map(point => {
 			var p = new PointModel({
 				link: this,
 				position: new Point(point.x, point.y)
@@ -91,7 +90,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 		});
 
 		//deserialize labels
-		_.forEach(event.data.labels || [], (label: any) => {
+    (event.data.labels || []).forEach((label: any) => {
 			let labelOb = (event.engine as DiagramEngine).getFactoryForLabel(label.type).generateModel({});
 			labelOb.deserialize({
 				...event,
@@ -129,10 +128,10 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 			sourcePort: this.sourcePort ? this.sourcePort.getID() : null,
 			target: this.targetPort ? this.targetPort.getParent().getID() : null,
 			targetPort: this.targetPort ? this.targetPort.getID() : null,
-			points: _.map(this.points, (point) => {
+			points: this.points.map((point) => {
 				return point.serialize();
 			}),
-			labels: _.map(this.labels, (label) => {
+			labels: this.labels.map((label) => {
 				return label.serialize();
 			})
 		};
@@ -140,7 +139,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 
 	doClone(lookupTable = {}, clone) {
 		clone.setPoints(
-			_.map(this.getPoints(), (point: PointModel) => {
+      this.getPoints().map((point: PointModel) => {
 				return point.clone(lookupTable);
 			})
 		);
@@ -272,7 +271,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 	}
 
 	setPoints(points: PointModel[]) {
-		_.forEach(points, (point) => {
+    points.forEach((point) => {
 			point.setParent(this);
 		});
 		this.points = points;

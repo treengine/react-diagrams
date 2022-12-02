@@ -1,6 +1,6 @@
 import { Point } from './Point';
-import * as _ from 'lodash';
 import { Matrix } from './Matrix';
+import * as flatMap from 'lodash/flatMap';
 
 export class Polygon {
 	protected points: Point[];
@@ -10,26 +10,26 @@ export class Polygon {
 	}
 
 	serialize() {
-		return _.map(this.points, (point) => {
+		return this.points.map(point => {
 			return [point.x, point.y];
 		});
 	}
 
 	deserialize(data: any) {
-		this.points = _.map(data, (point) => {
+		this.points = data.map(point => {
 			return new Point(point[0], point[1]);
 		});
 	}
 
 	scale(x, y, origin: Point) {
 		let matrix = Point.createScaleMatrix(x, y, origin);
-		_.forEach(this.points, (point) => {
+    this.points.forEach((point) => {
 			point.transform(matrix);
 		});
 	}
 
 	transform(matrix: Matrix) {
-		_.forEach(this.points, (point) => {
+    this.points.forEach((point) => {
 			point.transform(matrix);
 		});
 	}
@@ -47,13 +47,13 @@ export class Polygon {
 	}
 
 	translate(offsetX: number, offsetY: number) {
-		_.forEach(this.points, (point) => {
+    this.points.forEach((point) => {
 			point.translate(offsetX, offsetY);
 		});
 	}
 
 	doClone(ob: this) {
-		this.points = _.map(ob.points, (point) => {
+		this.points = ob.points.map(point => {
 			return point.clone();
 		});
 	}
@@ -74,7 +74,7 @@ export class Polygon {
 
 	static boundingBoxFromPolygons(polygons: Polygon[]): Rectangle {
 		return Polygon.boundingBoxFromPoints(
-			_.flatMap(polygons, (polygon) => {
+			flatMap(polygons, (polygon) => {
 				return polygon.getPoints();
 			})
 		);
@@ -127,7 +127,7 @@ export class Polygon {
 			if (this.points[i].y > maxY) {
 				maxY = this.points[i].y;
 			}
-		}
+}
 
 		return new Rectangle(new Point(minX, minY), new Point(maxX, minY), new Point(maxX, maxY), new Point(minX, maxY));
 	}
