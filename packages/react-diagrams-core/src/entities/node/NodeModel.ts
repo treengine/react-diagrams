@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { DiagramModel } from '../../models/DiagramModel';
 import { PortModel } from '../port/PortModel';
 import { LinkModel } from '../link/LinkModel';
@@ -51,7 +50,7 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 		}
 
 		//also update the port co-ordinates (for make glorious speed)
-		_.forEach(this.ports, (port) => {
+    Object.values(this.ports).forEach((port) => {
 			port.setPosition(port.getX() + this.position.x - old.x, port.getY() + this.position.y - old.y);
 		});
 	}
@@ -60,7 +59,7 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 		super.deserialize(event);
 
 		//deserialize ports
-		_.forEach(event.data.ports, (port: any) => {
+    Object.values(event.data.ports).forEach((port: any) => {
 			let portOb = (event.engine as DiagramEngine).getFactoryForPort(port.type).generateModel({});
 			portOb.deserialize({
 				...event,
@@ -75,7 +74,7 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 	serialize() {
 		return {
 			...super.serialize(),
-			ports: _.map(this.ports, (port) => {
+			ports: Object.values(this.ports).map((port) => {
 				return port.serialize();
 			})
 		};
@@ -84,15 +83,15 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 	doClone(lookupTable = {}, clone) {
 		// also clone the ports
 		clone.ports = {};
-		_.forEach(this.ports, (port) => {
+    Object.values(this.ports).forEach((port) => {
 			clone.addPort(port.clone(lookupTable));
 		});
 	}
 
 	remove() {
 		super.remove();
-		_.forEach(this.ports, (port) => {
-			_.forEach(port.getLinks(), (link) => {
+    Object.values(this.ports).forEach((port) => {
+      Object.values(port.getLinks()).forEach((link) => {
 				link.remove();
 			});
 		});
@@ -126,7 +125,7 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 
 	removePort(port: PortModel) {
 		// clear the port from the links
-		for (let link of _.values(port.getLinks())) {
+		for (let link of Object.values(port.getLinks())) {
 			link.clearPort(port);
 		}
 		//clear the parent node reference

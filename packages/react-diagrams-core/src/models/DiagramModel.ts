@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { LinkModel } from '../entities/link/LinkModel';
 import { NodeModel } from '../entities/node/NodeModel';
 import {
@@ -12,6 +11,7 @@ import {
 } from '@projectstorm/react-canvas-core';
 import { NodeLayerModel } from '../entities/node-layer/NodeLayerModel';
 import { LinkLayerModel } from '../entities/link-layer/LinkLayerModel';
+import * as flatMap from 'lodash/flatMap';
 
 export interface DiagramListener extends BaseEntityListener {
 	nodesUpdated?(event: BaseEntityEvent & { node: NodeModel; isCreated: boolean }): void;
@@ -49,13 +49,13 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 	}
 
 	getLinkLayers(): LinkLayerModel[] {
-		return _.filter(this.layers, (layer) => {
+		return this.layers.filter((layer) => {
 			return layer instanceof LinkLayerModel;
 		}) as LinkLayerModel[];
 	}
 
 	getNodeLayers(): NodeLayerModel[] {
-		return _.filter(this.layers, (layer) => {
+		return this.layers.filter((layer) => {
 			return layer instanceof NodeLayerModel;
 		}) as NodeLayerModel[];
 	}
@@ -103,7 +103,7 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 	}
 
 	addAll(...models: BaseModel[]): BaseModel[] {
-		_.forEach(models, (model) => {
+    models.forEach((model) => {
 			if (model instanceof LinkModel) {
 				this.addLink(model);
 			} else if (model instanceof NodeModel) {
@@ -132,7 +132,7 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 	}
 
 	removeLink(link: LinkModel) {
-		const removed = _.some(this.getLinkLayers(), (layer) => {
+		const removed = this.getLinkLayers().some((layer) => {
 			return layer.removeModel(link);
 		});
 		if (removed) {
@@ -141,7 +141,7 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 	}
 
 	removeNode(node: NodeModel) {
-		const removed = _.some(this.getNodeLayers(), (layer) => {
+		const removed = this.getNodeLayers().some((layer) => {
 			return layer.removeModel(node);
 		});
 		if (removed) {
@@ -150,14 +150,14 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 	}
 
 	getLinks(): LinkModel[] {
-		return _.flatMap(this.getLinkLayers(), (layer) => {
-			return _.values(layer.getModels());
+		return flatMap(this.getLinkLayers(), (layer) => {
+			return Object.values(layer.getModels());
 		});
 	}
 
 	getNodes(): NodeModel[] {
-		return _.flatMap(this.getNodeLayers(), (layer) => {
-			return _.values(layer.getModels());
+		return flatMap(this.getNodeLayers(), (layer) => {
+			return Object.values(layer.getModels());
 		});
 	}
 }

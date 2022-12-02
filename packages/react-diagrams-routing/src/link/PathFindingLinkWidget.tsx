@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as _ from 'lodash';
 import { DiagramEngine } from '@projectstorm/react-diagrams-core';
 import { PathFinding } from '../engine/PathFinding';
 import { PathFindingLinkFactory } from './PathFindingLinkFactory';
@@ -79,7 +78,7 @@ export class PathFindingLinkWidget extends React.Component<PathFindingLinkWidget
 		var paths = [];
 
 		// first step: calculate a direct path between the points being linked
-		const directPathCoords = this.pathFinding.calculateDirectPath(_.first(points), _.last(points));
+		const directPathCoords = this.pathFinding.calculateDirectPath(points[0], points[points.length - 1]);
 
 		const routingMatrix = this.props.factory.getRoutingMatrix();
 		// now we need to extract, from the routing matrix, the very first walkable points

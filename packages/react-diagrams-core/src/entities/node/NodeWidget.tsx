@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as _ from 'lodash';
 import { DiagramEngine } from '../../DiagramEngine';
 import { NodeModel } from './NodeModel';
 import { BaseEntityEvent, BaseModel, ListenerHandle, PeformanceWidget } from '@projectstorm/react-canvas-core';
@@ -61,7 +60,7 @@ export class NodeWidget extends React.Component<NodeProps> {
 
 		//now mark the links as dirty
 		try {
-			_.forEach(this.props.node.getPorts(), (port) => {
+      Object.values(this.props.node.getPorts()).forEach((port) => {
 				port.updateCoords(this.props.diagramEngine.getPortCoords(port));
 			});
 		} catch (ex) {}

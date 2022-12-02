@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as _ from 'lodash';
 import { PortModel } from './PortModel';
 import { DiagramEngine } from '../../DiagramEngine';
 import { ListenerHandle, Toolkit } from '@projectstorm/react-canvas-core';
@@ -47,7 +46,7 @@ export class PortWidget extends React.Component<React.PropsWithChildren<PortProp
 
 	getExtraProps() {
 		if (Toolkit.TESTING) {
-			const links = _.keys(this.props.port.getNode().getPort(this.props.port.getName()).links).join(',');
+			const links = Object.keys(this.props.port.getNode().getPort(this.props.port.getName()).links).join(',');
 			return {
 				'data-links': links
 			};

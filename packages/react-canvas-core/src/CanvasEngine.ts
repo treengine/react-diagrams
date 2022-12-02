@@ -1,4 +1,4 @@
-import { debounce } from 'lodash';
+import * as debounce from 'lodash/debounce';
 import { CanvasModel } from './entities/canvas/CanvasModel';
 import { FactoryBank } from './core/FactoryBank';
 import { AbstractReactFactory } from './core/AbstractReactFactory';
