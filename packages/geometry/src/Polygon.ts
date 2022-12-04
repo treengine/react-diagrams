@@ -1,9 +1,9 @@
 import { Point } from './Point';
 import * as _ from 'lodash';
 import { Rectangle } from './Rectangle';
-import { AbstractPolygon } from './AbstractPolygon';
+import { BasePolygon } from './BasePolygon';
 
-export class Polygon extends AbstractPolygon {
+export class Polygon extends BasePolygon {
 	constructor(points: Point[] = []) {
     super(points);
 	}

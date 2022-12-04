@@ -1,7 +1,7 @@
 import { Point } from './Point';
-import { AbstractPolygon } from './AbstractPolygon';
+import { BasePolygon } from './BasePolygon';
 
-export class Rectangle extends AbstractPolygon {
+export class Rectangle extends BasePolygon {
 	constructor(tl: Point, tr: Point, br: Point, bl: Point);
 	constructor(position: Point, width: number, height: number);
 	constructor(x?: number, y?: number, width?: number, height?: number);

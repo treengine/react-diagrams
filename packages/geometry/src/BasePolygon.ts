@@ -1,7 +1,7 @@
 import { Point } from './Point';
 import { Matrix } from './Matrix';
 
-export class AbstractPolygon {
+export class BasePolygon {
   protected points: Point[];
 
   constructor(points: Point[] = []) {
