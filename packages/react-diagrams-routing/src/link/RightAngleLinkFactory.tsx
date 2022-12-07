@@ -1,17 +1,15 @@
 import * as React from 'react';
 import { RightAngleLinkWidget } from './RightAngleLinkWidget';
-import { DiagramEngine } from '@projectstorm/react-diagrams-core';
-import { DefaultLinkFactory, DefaultLinkModel } from '@projectstorm/react-diagrams-defaults';
+import { DefaultLinkFactory } from '@projectstorm/react-diagrams-defaults';
 import { RightAngleLinkModel } from './RightAngleLinkModel';
+import { RIGHT_ANGE_LINK_FACTORY_NAME } from './Names';
 
 /**
  * @author Daniel Lazar
  */
 export class RightAngleLinkFactory extends DefaultLinkFactory<RightAngleLinkModel> {
-	static NAME = 'rightAngle';
-
 	constructor() {
-		super(RightAngleLinkFactory.NAME);
+		super(RIGHT_ANGE_LINK_FACTORY_NAME);
 	}
 
 	generateModel(event): RightAngleLinkModel {

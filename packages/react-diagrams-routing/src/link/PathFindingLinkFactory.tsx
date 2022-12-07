@@ -13,6 +13,7 @@ import {
 	InputType,
 	ListenerHandle
 } from '@projectstorm/react-canvas-core';
+import { PATH_FINDING_LINK_FACTORY_NAME } from './Names';
 
 export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkModel> {
 	ROUTING_SCALING_FACTOR: number = 5;
@@ -25,11 +26,10 @@ export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkMo
 	hAdjustmentFactor: number = 0;
 	vAdjustmentFactor: number = 0;
 
-	static NAME = 'pathfinding';
 	listener: ListenerHandle;
 
 	constructor() {
-		super(PathFindingLinkFactory.NAME);
+		super(PATH_FINDING_LINK_FACTORY_NAME);
 	}
 
 	setDiagramEngine(engine: DiagramEngine): void {
