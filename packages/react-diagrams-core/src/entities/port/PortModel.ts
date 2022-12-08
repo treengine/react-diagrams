@@ -74,7 +74,7 @@ export class PortModel<G extends PortModelGenerics = PortModelGenerics> extends 
 	setPosition(x, y?) {
 		let old = this.position;
 		super.setPosition(x, y);
-    Object.values(this.getLinks()).forEach((link) => {
+		Object.values(this.getLinks()).forEach((link) => {
 			let point = link.getPointForPort(this);
 			point.setPosition(point.getX() + x - old.x, point.getY() + y - old.y);
 		});
@@ -126,7 +126,7 @@ export class PortModel<G extends PortModelGenerics = PortModelGenerics> extends 
 	}
 
 	reportPosition() {
-    Object.values(this.getLinks()).forEach((link) => {
+		Object.values(this.getLinks()).forEach((link) => {
 			link.getPointForPort(this).setPosition(this.getCenter());
 		});
 		this.fireEvent(

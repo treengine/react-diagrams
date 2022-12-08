@@ -4,8 +4,8 @@ import { CanvasEngine } from '../../CanvasEngine';
 import { FactoryBank } from '../../core/FactoryBank';
 import { AbstractModelFactory } from '../../core/AbstractModelFactory';
 import { DeserializeEvent } from '../../core-models/BaseEntity';
-import * as mapValues from 'lodash/mapValues';
-import * as flatMap from 'lodash/flatMap';
+import mapValues from 'lodash-es/mapValues';
+import flatMap from 'lodash-es/flatMap';
 
 export interface LayerModelOptions extends BaseModelOptions {
 	isSvg?: boolean;
@@ -38,7 +38,7 @@ export abstract class LayerModel<G extends LayerModelGenerics = LayerModelGeneri
 		super.deserialize(event);
 		this.options.isSvg = !!event.data.isSvg;
 		this.options.transformed = !!event.data.transformed;
-    Object.values(event.data.models).forEach(event.data.models, (model) => {
+		Object.values(event.data.models).forEach(event.data.models, (model) => {
 			const modelOb = this.getChildModelFactoryBank(event.engine).getFactory(model.type).generateModel({
 				initialConfig: model
 			});

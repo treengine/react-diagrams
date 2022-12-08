@@ -60,7 +60,7 @@ export class NodeWidget extends React.Component<NodeProps> {
 
 		//now mark the links as dirty
 		try {
-      Object.values(this.props.node.getPorts()).forEach((port) => {
+			Object.values(this.props.node.getPorts()).forEach((port) => {
 				port.updateCoords(this.props.diagramEngine.getPortCoords(port));
 			});
 		} catch (ex) {}

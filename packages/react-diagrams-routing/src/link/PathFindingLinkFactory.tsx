@@ -12,13 +12,13 @@ import {
 	InputType,
 	ListenerHandle
 } from '@projectstorm/react-canvas-core';
-import * as defer from 'lodash/defer';
-import * as range from 'lodash/range';
-import * as cloneDeep from 'lodash/cloneDeep';
-import * as flatMap from 'lodash/flatMap';
-import * as get from 'lodash/get';
-import * as minBy from 'lodash/minBy';
-import * as maxBy from 'lodash/maxBy';
+import defer from 'lodash-es/defer';
+import range from 'lodash-es/range';
+import cloneDeep from 'lodash-es/cloneDeep';
+import flatMap from 'lodash-es/flatMap';
+import get from 'lodash-es/get';
+import minBy from 'lodash-es/minBy';
+import maxBy from 'lodash-es/maxBy';
 
 export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkModel> {
 	ROUTING_SCALING_FACTOR: number = 5;
@@ -177,12 +177,15 @@ export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkMo
 		height: number;
 		vAdjustmentFactor: number;
 	} => {
-		const allNodesCoords = this.engine.getModel().getNodes().map((item) => ({
-			x: item.getX(),
-			width: item.width,
-			y: item.getY(),
-			height: item.height
-		}));
+		const allNodesCoords = this.engine
+			.getModel()
+			.getNodes()
+			.map((item) => ({
+				x: item.getX(),
+				width: item.width,
+				y: item.getY(),
+				height: item.height
+			}));
 
 		const allLinks = this.engine.getModel().getLinks();
 		const allPortsCoords = flatMap(allLinks.map((link) => [link.getSourcePort(), link.getTargetPort()]))
@@ -228,18 +231,21 @@ export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkMo
 	 * Updates (by reference) where nodes will be drawn on the matrix passed in.
 	 */
 	markNodes = (matrix: number[][]): void => {
-		this.engine.getModel().getNodes().forEach((node) => {
-			const startX = Math.floor(node.getX() / this.ROUTING_SCALING_FACTOR);
-			const endX = Math.ceil((node.getX() + node.width) / this.ROUTING_SCALING_FACTOR);
-			const startY = Math.floor(node.getY() / this.ROUTING_SCALING_FACTOR);
-			const endY = Math.ceil((node.getY() + node.height) / this.ROUTING_SCALING_FACTOR);
+		this.engine
+			.getModel()
+			.getNodes()
+			.forEach((node) => {
+				const startX = Math.floor(node.getX() / this.ROUTING_SCALING_FACTOR);
+				const endX = Math.ceil((node.getX() + node.width) / this.ROUTING_SCALING_FACTOR);
+				const startY = Math.floor(node.getY() / this.ROUTING_SCALING_FACTOR);
+				const endY = Math.ceil((node.getY() + node.height) / this.ROUTING_SCALING_FACTOR);
 
-			for (let x = startX - 1; x <= endX + 1; x++) {
-				for (let y = startY - 1; y < endY + 1; y++) {
-					this.markMatrixPoint(matrix, this.translateRoutingX(x), this.translateRoutingY(y));
+				for (let x = startX - 1; x <= endX + 1; x++) {
+					for (let y = startY - 1; y < endY + 1; y++) {
+						this.markMatrixPoint(matrix, this.translateRoutingX(x), this.translateRoutingY(y));
+					}
 				}
-			}
-		});
+			});
 	};
 
 	/**
@@ -247,7 +253,10 @@ export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkMo
 	 */
 	markPorts = (matrix: number[][]): void => {
 		const allElements = flatMap(
-			this.engine.getModel().getLinks().map((link) => [].concat(link.getSourcePort(), link.getTargetPort()))
+			this.engine
+				.getModel()
+				.getLinks()
+				.map((link) => [].concat(link.getSourcePort(), link.getTargetPort()))
 		);
 		allElements
 			.filter((port) => port !== null)

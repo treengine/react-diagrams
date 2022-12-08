@@ -9,7 +9,7 @@ import {
 import { LayerModel } from '../layer/LayerModel';
 import { BaseModel } from '../../core-models/BaseModel';
 import { CanvasEngine } from '../../CanvasEngine';
-import * as flatMap from 'lodash/flatMap';
+import flatMap from 'lodash-es/flatMap';
 
 export interface DiagramListener extends BaseEntityListener {
 	offsetUpdated?(event: BaseEntityEvent<CanvasModel> & { offsetX: number; offsetY: number }): void;
@@ -53,13 +53,13 @@ export class CanvasModel<G extends CanvasModelGenerics = CanvasModelGenerics> ex
 	}
 
 	getSelectedEntities(): BaseModel[] {
-		return this.getSelectionEntities().filter(ob => {
+		return this.getSelectionEntities().filter((ob) => {
 			return ob.isSelected();
 		});
 	}
 
 	clearSelection() {
-		this.getSelectedEntities().forEach(element => {
+		this.getSelectedEntities().forEach((element) => {
 			element.setSelected(false);
 		});
 	}
@@ -163,7 +163,7 @@ export class CanvasModel<G extends CanvasModelGenerics = CanvasModelGenerics> ex
 			offsetY: this.options.offsetY,
 			zoom: this.options.zoom,
 			gridSize: this.options.gridSize,
-			layers: this.layers.map(layer => {
+			layers: this.layers.map((layer) => {
 				return layer.serialize();
 			})
 		};

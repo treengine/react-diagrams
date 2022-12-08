@@ -30,11 +30,11 @@ export class DagreEngine {
 		});
 
 		// set nodes
-    model.getNodes().forEach((node) => {
+		model.getNodes().forEach((node) => {
 			g.setNode(node.getID(), { width: node.width, height: node.height });
 		});
 
-    model.getLinks().forEach((link) => {
+		model.getLinks().forEach((link) => {
 			// set edges
 			if (link.getSourcePort() && link.getTargetPort()) {
 				g.setEdge({

@@ -35,7 +35,7 @@
 		"@projectstorm/react-canvas-core": "^6.7.4"
 	},
 	"peerDependencies": {
-		"lodash": "4.*",
+		"lodash-es": "4.*",
 		"react": "18.*",
 		"resize-observer-polyfill": "^1.5.1"
 	},

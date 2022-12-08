@@ -54,7 +54,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 
 	getBoundingBox(): Rectangle {
 		return Polygon.boundingBoxFromPoints(
-      this.points.map((point: PointModel) => {
+			this.points.map((point: PointModel) => {
 				return point.getPosition();
 			})
 		);
@@ -77,7 +77,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 
 	deserialize(event: DeserializeEvent<this>) {
 		super.deserialize(event);
-		this.points = (event.data.points || []).map(point => {
+		this.points = (event.data.points || []).map((point) => {
 			var p = new PointModel({
 				link: this,
 				position: new Point(point.x, point.y)
@@ -90,7 +90,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 		});
 
 		//deserialize labels
-    (event.data.labels || []).forEach((label: any) => {
+		(event.data.labels || []).forEach((label: any) => {
 			let labelOb = (event.engine as DiagramEngine).getFactoryForLabel(label.type).generateModel({});
 			labelOb.deserialize({
 				...event,
@@ -139,7 +139,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 
 	doClone(lookupTable = {}, clone) {
 		clone.setPoints(
-      this.getPoints().map((point: PointModel) => {
+			this.getPoints().map((point: PointModel) => {
 				return point.clone(lookupTable);
 			})
 		);
@@ -271,7 +271,7 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics>
 	}
 
 	setPoints(points: PointModel[]) {
-    points.forEach((point) => {
+		points.forEach((point) => {
 			point.setParent(this);
 		});
 		this.points = points;

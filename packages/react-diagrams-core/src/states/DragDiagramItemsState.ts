@@ -14,7 +14,7 @@ export class DragDiagramItemsState extends MoveItemsState<DiagramEngine> {
 				fire: (event: ActionEvent<MouseEvent>) => {
 					const item = this.engine.getMouseElement(event.event);
 					if (item instanceof PortModel) {
-            Object.values(this.initialPositions).forEach((position) => {
+						Object.values(this.initialPositions).forEach((position) => {
 							if (position.item instanceof PointModel) {
 								const link = position.item.getParent() as LinkModel;
 

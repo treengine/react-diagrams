@@ -50,7 +50,7 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 		}
 
 		//also update the port co-ordinates (for make glorious speed)
-    Object.values(this.ports).forEach((port) => {
+		Object.values(this.ports).forEach((port) => {
 			port.setPosition(port.getX() + this.position.x - old.x, port.getY() + this.position.y - old.y);
 		});
 	}
@@ -59,7 +59,7 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 		super.deserialize(event);
 
 		//deserialize ports
-    Object.values(event.data.ports).forEach((port: any) => {
+		Object.values(event.data.ports).forEach((port: any) => {
 			let portOb = (event.engine as DiagramEngine).getFactoryForPort(port.type).generateModel({});
 			portOb.deserialize({
 				...event,
@@ -83,15 +83,15 @@ export class NodeModel<G extends NodeModelGenerics = NodeModelGenerics> extends 
 	doClone(lookupTable = {}, clone) {
 		// also clone the ports
 		clone.ports = {};
-    Object.values(this.ports).forEach((port) => {
+		Object.values(this.ports).forEach((port) => {
 			clone.addPort(port.clone(lookupTable));
 		});
 	}
 
 	remove() {
 		super.remove();
-    Object.values(this.ports).forEach((port) => {
-      Object.values(port.getLinks()).forEach((link) => {
+		Object.values(this.ports).forEach((port) => {
+			Object.values(port.getLinks()).forEach((link) => {
 				link.remove();
 			});
 		});

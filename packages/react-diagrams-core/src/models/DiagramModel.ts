@@ -11,7 +11,7 @@ import {
 } from '@projectstorm/react-canvas-core';
 import { NodeLayerModel } from '../entities/node-layer/NodeLayerModel';
 import { LinkLayerModel } from '../entities/link-layer/LinkLayerModel';
-import * as flatMap from 'lodash/flatMap';
+import flatMap from 'lodash-es/flatMap';
 
 export interface DiagramListener extends BaseEntityListener {
 	nodesUpdated?(event: BaseEntityEvent & { node: NodeModel; isCreated: boolean }): void;
@@ -103,7 +103,7 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 	}
 
 	addAll(...models: BaseModel[]): BaseModel[] {
-    models.forEach((model) => {
+		models.forEach((model) => {
 			if (model instanceof LinkModel) {
 				this.addLink(model);
 			} else if (model instanceof NodeModel) {
