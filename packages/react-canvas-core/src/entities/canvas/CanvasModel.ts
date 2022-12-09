@@ -1,3 +1,4 @@
+import flatMap from 'lodash-es/flatMap';
 import {
 	BaseEntity,
 	BaseEntityEvent,
@@ -9,7 +10,6 @@ import {
 import { LayerModel } from '../layer/LayerModel';
 import { BaseModel } from '../../core-models/BaseModel';
 import { CanvasEngine } from '../../CanvasEngine';
-import flatMap from 'lodash-es/flatMap';
 
 export interface DiagramListener extends BaseEntityListener {
 	offsetUpdated?(event: BaseEntityEvent<CanvasModel> & { offsetX: number; offsetY: number }): void;

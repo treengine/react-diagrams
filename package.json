@@ -38,8 +38,8 @@
 		"pathfinding": "^0.4.18",
 		"paths-js": "^0.4.11",
 		"react": "16.* || 17.*",
-        "lodash-es": "^4.17.21"
-    },
+		"lodash-es": "^4.17.21"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.18.2",
 		"@babel/preset-react": "^7.17.12",

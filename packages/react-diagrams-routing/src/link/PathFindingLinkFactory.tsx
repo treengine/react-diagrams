@@ -2,6 +2,13 @@ import * as React from 'react';
 import { DiagramEngine } from '@projectstorm/react-diagrams-core';
 import { PathFindingLinkModel } from './PathFindingLinkModel';
 import { PathFindingLinkWidget } from './PathFindingLinkWidget';
+import defer from 'lodash-es/defer';
+import range from 'lodash-es/range';
+import cloneDeep from 'lodash-es/cloneDeep';
+import flatMap from 'lodash-es/flatMap';
+import get from 'lodash-es/get';
+import minBy from 'lodash-es/minBy';
+import maxBy from 'lodash-es/maxBy';
 import * as Path from 'paths-js/path';
 import { DefaultLinkFactory } from '@projectstorm/react-diagrams-defaults';
 import {
@@ -12,13 +19,6 @@ import {
 	InputType,
 	ListenerHandle
 } from '@projectstorm/react-canvas-core';
-import defer from 'lodash-es/defer';
-import range from 'lodash-es/range';
-import cloneDeep from 'lodash-es/cloneDeep';
-import flatMap from 'lodash-es/flatMap';
-import get from 'lodash-es/get';
-import minBy from 'lodash-es/minBy';
-import maxBy from 'lodash-es/maxBy';
 
 export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkModel> {
 	ROUTING_SCALING_FACTOR: number = 5;
