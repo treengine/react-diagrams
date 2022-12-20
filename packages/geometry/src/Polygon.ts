@@ -1,16 +1,16 @@
 import { Point } from './Point';
-import * as _ from 'lodash';
+import flatMap from 'lodash-es/flatMap';
 import { Rectangle } from './Rectangle';
 import { BasePolygon } from './BasePolygon';
 
 export class Polygon extends BasePolygon {
 	constructor(points: Point[] = []) {
-    super(points);
+		super(points);
 	}
 
 	static boundingBoxFromPolygons(polygons: Polygon[]): Rectangle {
 		return Polygon.boundingBoxFromPoints(
-			_.flatMap(polygons, (polygon) => {
+			flatMap(polygons, (polygon) => {
 				return polygon.getPoints();
 			})
 		);
