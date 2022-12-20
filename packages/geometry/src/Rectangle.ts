@@ -1,7 +1,7 @@
 import { Point } from './Point';
-import { Polygon } from './Polygon';
+import { BasePolygon } from './BasePolygon';
 
-export class Rectangle extends Polygon {
+export class Rectangle extends BasePolygon {
 	constructor(tl: Point, tr: Point, br: Point, bl: Point);
 	constructor(position: Point, width: number, height: number);
 	constructor(x?: number, y?: number, width?: number, height?: number);
@@ -82,4 +82,40 @@ export class Rectangle extends Polygon {
 	getBottomLeft(): Point {
 		return this.points[3];
 	}
+
+  getOrigin(): Point {
+    if (this.points.length === 0) {
+      return null;
+    }
+    let dimensions = this.getBoundingBox();
+    return Point.middlePoint(dimensions.getTopLeft(), dimensions.getBottomRight());
+  }
+
+  getBoundingBox(): Rectangle {
+    let minX = this.points[0].x;
+    let maxX = this.points[0].x;
+    let minY = this.points[0].y;
+    let maxY = this.points[0].y;
+
+    for (let i = 1; i < this.points.length; i++) {
+      if (this.points[i].x < minX) {
+        minX = this.points[i].x;
+      }
+      if (this.points[i].x > maxX) {
+        maxX = this.points[i].x;
+      }
+      if (this.points[i].y < minY) {
+        minY = this.points[i].y;
+      }
+      if (this.points[i].y > maxY) {
+        maxY = this.points[i].y;
+      }
+    }
+
+    return new Rectangle(new Point(minX, minY), new Point(maxX, minY), new Point(maxX, maxY), new Point(minX, maxY));
+  }
+
+  rotate(degrees: number) {
+    this.transform(Point.createRotateMatrix(degrees / (180 / Math.PI), this.getOrigin()));
+  }
 }

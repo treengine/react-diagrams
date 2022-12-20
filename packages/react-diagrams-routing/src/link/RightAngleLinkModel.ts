@@ -1,7 +1,7 @@
 import { DefaultLinkModel, DefaultLinkModelOptions } from '@projectstorm/react-diagrams-defaults';
-import { RightAngleLinkFactory } from './RightAngleLinkFactory';
 import { PointModel } from '@projectstorm/react-diagrams-core';
 import { DeserializeEvent } from '@projectstorm/react-canvas-core';
+import { RIGHT_ANGE_LINK_FACTORY_NAME } from './Names';
 
 export class RightAngleLinkModel extends DefaultLinkModel {
 	lastHoverIndexOfPath: number;
@@ -9,7 +9,7 @@ export class RightAngleLinkModel extends DefaultLinkModel {
 	private _firstPathXdirection: boolean;
 	constructor(options: DefaultLinkModelOptions = {}) {
 		super({
-			type: RightAngleLinkFactory.NAME,
+			type: RIGHT_ANGE_LINK_FACTORY_NAME,
 			...options
 		});
 		this.lastHoverIndexOfPath = 0;
