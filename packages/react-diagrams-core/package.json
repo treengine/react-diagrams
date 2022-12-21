@@ -1,6 +1,6 @@
 {
-	"name": "@projectstorm/react-diagrams-core",
-	"version": "6.7.5",
+	"name": "@treenity-projectstorm/react-diagrams-core",
+	"version": "6.7.6",
 	"author": "dylanvorster",
 	"license": "MIT",
 	"repository": {
