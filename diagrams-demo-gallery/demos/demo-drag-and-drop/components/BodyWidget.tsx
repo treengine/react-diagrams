@@ -3,8 +3,8 @@ import * as _ from 'lodash';
 import { TrayWidget } from './TrayWidget';
 import { Application } from '../Application';
 import { TrayItemWidget } from './TrayItemWidget';
-import { DefaultNodeModel } from '@projectstorm/react-diagrams';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import { DefaultNodeModel } from '@treenity/react-diagrams';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../../helpers/DemoCanvasWidget';
 import styled from '@emotion/styled';
 
@@ -74,8 +74,7 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 						}}
 						onDragOver={(event) => {
 							event.preventDefault();
-						}}
-					>
+						}}>
 						<DemoCanvasWidget>
 							<CanvasWidget engine={this.props.app.getDiagramEngine()} />
 						</DemoCanvasWidget>

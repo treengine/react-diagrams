@@ -1,4 +1,4 @@
-import { Action, ActionEvent, InputType, MoveItemsState } from '@projectstorm/react-canvas-core';
+import { Action, ActionEvent, InputType, MoveItemsState } from '@treenity/react-canvas-core';
 import { PointModel } from '../entities/link/PointModel';
 import { DiagramEngine } from '../DiagramEngine';
 import { PortModel } from '../entities/port/PortModel';

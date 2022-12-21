@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DiagramEngine } from '../../DiagramEngine';
 import { NodeModel } from './NodeModel';
-import { BaseEntityEvent, BaseModel, ListenerHandle, PeformanceWidget } from '@projectstorm/react-canvas-core';
+import { BaseEntityEvent, BaseModel, ListenerHandle, PeformanceWidget } from '@treenity/react-canvas-core';
 import styled from '@emotion/styled';
 import ResizeObserver from 'resize-observer-polyfill';
 
@@ -91,8 +91,7 @@ export class NodeWidget extends React.Component<NodeProps> {
 							style={{
 								top: this.props.node.getY(),
 								left: this.props.node.getX()
-							}}
-						>
+							}}>
 							{this.props.diagramEngine.generateWidgetForNode(this.props.node)}
 						</S.Node>
 					);

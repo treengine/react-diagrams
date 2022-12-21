@@ -5,10 +5,10 @@ import createEngine, {
 	DefaultLinkFactory,
 	DefaultLinkModel,
 	DefaultLinkWidget
-} from '@projectstorm/react-diagrams';
-import { LinkWidget, PointModel } from '@projectstorm/react-diagrams-core';
+} from '@treenity/react-diagrams';
+import { LinkWidget, PointModel } from '@treenity/react-diagrams-core';
 import * as React from 'react';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 import { MouseEvent } from 'react';
 

@@ -1,21 +1,16 @@
-import {
-	DefaultDiagramState,
-	DiagramEngine,
-	LinkLayerFactory,
-	NodeLayerFactory
-} from '@projectstorm/react-diagrams-core';
+import { DefaultDiagramState, DiagramEngine, LinkLayerFactory, NodeLayerFactory } from '@treenity/react-diagrams-core';
 import {
 	DefaultLabelFactory,
 	DefaultLinkFactory,
 	DefaultNodeFactory,
 	DefaultPortFactory
-} from '@projectstorm/react-diagrams-defaults';
-import { PathFindingLinkFactory } from '@projectstorm/react-diagrams-routing';
-import { SelectionBoxLayerFactory, CanvasEngineOptions } from '@projectstorm/react-canvas-core';
+} from '@treenity/react-diagrams-defaults';
+import { PathFindingLinkFactory } from '@treenity/react-diagrams-routing';
+import { SelectionBoxLayerFactory, CanvasEngineOptions } from '@treenity/react-canvas-core';
 
-export * from '@projectstorm/react-diagrams-core';
-export * from '@projectstorm/react-diagrams-defaults';
-export * from '@projectstorm/react-diagrams-routing';
+export * from '@treenity/react-diagrams-core';
+export * from '@treenity/react-diagrams-defaults';
+export * from '@treenity/react-diagrams-routing';
 
 /**
  * Construct an engine with the defaults installed

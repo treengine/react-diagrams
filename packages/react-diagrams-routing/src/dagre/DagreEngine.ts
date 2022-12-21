@@ -1,7 +1,7 @@
-import { DiagramModel, PointModel } from '@projectstorm/react-diagrams-core';
+import { DiagramModel, PointModel } from '@treenity/react-diagrams-core';
 import * as dagre from 'dagre';
 import { GraphLabel } from 'dagre';
-import { Point } from '@projectstorm/geometry';
+import { Point } from '@treenity/geometry';
 
 export interface DagreEngineOptions {
 	graph?: GraphLabel;

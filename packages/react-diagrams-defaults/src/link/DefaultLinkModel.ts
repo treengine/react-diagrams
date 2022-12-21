@@ -6,10 +6,10 @@ import {
 	LinkModelListener,
 	PortModel,
 	PortModelAlignment
-} from '@projectstorm/react-diagrams-core';
+} from '@treenity/react-diagrams-core';
 import { DefaultLabelModel } from '../label/DefaultLabelModel';
-import { BezierCurve } from '@projectstorm/geometry';
-import { BaseEntityEvent, BaseModelOptions, DeserializeEvent } from '@projectstorm/react-canvas-core';
+import { BezierCurve } from '@treenity/geometry';
+import { BaseEntityEvent, BaseModelOptions, DeserializeEvent } from '@treenity/react-canvas-core';
 
 export interface DefaultLinkModelListener extends LinkModelListener {
 	colorChanged?(event: BaseEntityEvent<DefaultLinkModel> & { color: null | string }): void;

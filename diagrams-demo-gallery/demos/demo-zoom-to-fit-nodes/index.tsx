@@ -1,7 +1,7 @@
-import createEngine, { DiagramModel, DefaultNodeModel } from '@projectstorm/react-diagrams';
+import createEngine, { DiagramModel, DefaultNodeModel } from '@treenity/react-diagrams';
 import * as React from 'react';
 import { DemoWorkspaceWidget, DemoButton } from '../helpers/DemoWorkspaceWidget';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 /**
@@ -29,8 +29,7 @@ export default () => {
 	//6) render the diagram!
 	return (
 		<DemoWorkspaceWidget
-			buttons={<DemoButton onClick={() => engine.zoomToFitSelectedNodes(50)}>Zoom to fit</DemoButton>}
-		>
+			buttons={<DemoButton onClick={() => engine.zoomToFitSelectedNodes(50)}>Zoom to fit</DemoButton>}>
 			<DemoCanvasWidget>
 				<CanvasWidget engine={engine} />
 			</DemoCanvasWidget>

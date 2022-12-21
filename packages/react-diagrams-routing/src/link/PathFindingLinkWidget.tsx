@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { DiagramEngine } from '@projectstorm/react-diagrams-core';
+import { DiagramEngine } from '@treenity/react-diagrams-core';
 import { PathFinding } from '../engine/PathFinding';
 import { PathFindingLinkFactory } from './PathFindingLinkFactory';
 import { PathFindingLinkModel } from './PathFindingLinkModel';
-import { DefaultLinkSegmentWidget } from '@projectstorm/react-diagrams-defaults';
+import { DefaultLinkSegmentWidget } from '@treenity/react-diagrams-defaults';
 
 export interface PathFindingLinkWidgetProps {
 	color?: string;

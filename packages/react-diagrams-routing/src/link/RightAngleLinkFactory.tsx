@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RightAngleLinkWidget } from './RightAngleLinkWidget';
-import { DefaultLinkFactory } from '@projectstorm/react-diagrams-defaults';
+import { DefaultLinkFactory } from '@treenity/react-diagrams-defaults';
 import { RightAngleLinkModel } from './RightAngleLinkModel';
 import { RIGHT_ANGE_LINK_FACTORY_NAME } from './Names';
 

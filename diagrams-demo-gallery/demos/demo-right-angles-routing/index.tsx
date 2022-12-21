@@ -5,11 +5,11 @@ import createEngine, {
 	RightAngleLinkFactory,
 	LinkModel,
 	RightAngleLinkModel
-} from '@projectstorm/react-diagrams';
+} from '@treenity/react-diagrams';
 import * as React from 'react';
 import { DemoButton, DemoWorkspaceWidget } from '../helpers/DemoWorkspaceWidget';
 import { action } from '@storybook/addon-actions';
-import { AbstractModelFactory, CanvasWidget } from '@projectstorm/react-canvas-core';
+import { AbstractModelFactory, CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 // When new link is created by clicking on port the RightAngleLinkModel needs to be returned.
@@ -58,12 +58,10 @@ export default () => {
 				<DemoButton
 					onClick={() => {
 						action('Serialized Graph')(JSON.stringify(model.serialize(), null, 2));
-					}}
-				>
+					}}>
 					Serialize Graph
 				</DemoButton>
-			}
-		>
+			}>
 			<DemoCanvasWidget>
 				<CanvasWidget engine={engine} />
 			</DemoCanvasWidget>

@@ -1,8 +1,8 @@
-import createEngine, { DiagramModel, DefaultNodeModel, NodeModel } from '@projectstorm/react-diagrams';
+import createEngine, { DiagramModel, DefaultNodeModel, NodeModel } from '@treenity/react-diagrams';
 import * as React from 'react';
 import * as _ from 'lodash';
 import { DemoButton, DemoWorkspaceWidget } from '../helpers/DemoWorkspaceWidget';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 /**
@@ -49,8 +49,7 @@ class NodeDelayedPosition extends React.Component<any, any> {
 					<DemoButton key={2} onClick={this.updatePositionViaSerialize}>
 						Update position via serialize
 					</DemoButton>
-				]}
-			>
+				]}>
 				<DemoCanvasWidget>
 					<CanvasWidget engine={engine} />
 				</DemoCanvasWidget>

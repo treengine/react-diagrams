@@ -1,14 +1,14 @@
 import { DiagramModel } from '../../models/DiagramModel';
 import { PortModel } from '../port/PortModel';
 import { LinkModel } from '../link/LinkModel';
-import { Point, Rectangle } from '@projectstorm/geometry';
+import { Point, Rectangle } from '@treenity/geometry';
 import {
 	BaseEntityEvent,
 	BaseModelListener,
 	BasePositionModel,
 	BasePositionModelGenerics,
 	DeserializeEvent
-} from '@projectstorm/react-canvas-core';
+} from '@treenity/react-canvas-core';
 import { DiagramEngine } from '../../DiagramEngine';
 
 export interface NodeModelListener extends BaseModelListener {

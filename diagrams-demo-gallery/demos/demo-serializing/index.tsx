@@ -1,9 +1,9 @@
-import createEngine, { DiagramModel, DefaultNodeModel, DefaultLabelModel } from '@projectstorm/react-diagrams';
+import createEngine, { DiagramModel, DefaultNodeModel, DefaultLabelModel } from '@treenity/react-diagrams';
 import * as React from 'react';
 import { DemoButton, DemoWorkspaceWidget } from '../helpers/DemoWorkspaceWidget';
 import { action } from '@storybook/addon-actions';
 import * as beautify from 'json-beautify';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 export default () => {
@@ -49,12 +49,10 @@ export default () => {
 				<DemoButton
 					onClick={() => {
 						action('Serialized Graph')(beautify(model2.serialize(), null, 2, 80));
-					}}
-				>
+					}}>
 					Serialize Graph
 				</DemoButton>
-			}
-		>
+			}>
 			<DemoCanvasWidget>
 				<CanvasWidget engine={engine} />
 			</DemoCanvasWidget>

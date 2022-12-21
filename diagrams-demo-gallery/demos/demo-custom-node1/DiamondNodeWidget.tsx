@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DiamondNodeModel } from './DiamondNodeModel';
-import { DiagramEngine, PortModelAlignment, PortWidget } from '@projectstorm/react-diagrams';
+import { DiagramEngine, PortModelAlignment, PortWidget } from '@treenity/react-diagrams';
 import styled from '@emotion/styled';
 
 export interface DiamondNodeWidgetProps {
@@ -36,8 +36,7 @@ export class DiamondNodeWidget extends React.Component<DiamondNodeWidgetProps> {
 					position: 'relative',
 					width: this.props.size,
 					height: this.props.size
-				}}
-			>
+				}}>
 				<svg
 					width={this.props.size}
 					height={this.props.size}
@@ -73,8 +72,7 @@ export class DiamondNodeWidget extends React.Component<DiamondNodeWidgetProps> {
 						position: 'absolute'
 					}}
 					port={this.props.node.getPort(PortModelAlignment.LEFT)}
-					engine={this.props.engine}
-				>
+					engine={this.props.engine}>
 					<S.Port />
 				</PortWidget>
 				<PortWidget
@@ -84,8 +82,7 @@ export class DiamondNodeWidget extends React.Component<DiamondNodeWidgetProps> {
 						position: 'absolute'
 					}}
 					port={this.props.node.getPort(PortModelAlignment.TOP)}
-					engine={this.props.engine}
-				>
+					engine={this.props.engine}>
 					<S.Port />
 				</PortWidget>
 				<PortWidget
@@ -95,8 +92,7 @@ export class DiamondNodeWidget extends React.Component<DiamondNodeWidgetProps> {
 						position: 'absolute'
 					}}
 					port={this.props.node.getPort(PortModelAlignment.RIGHT)}
-					engine={this.props.engine}
-				>
+					engine={this.props.engine}>
 					<S.Port />
 				</PortWidget>
 				<PortWidget
@@ -106,8 +102,7 @@ export class DiamondNodeWidget extends React.Component<DiamondNodeWidgetProps> {
 						position: 'absolute'
 					}}
 					port={this.props.node.getPort(PortModelAlignment.BOTTOM)}
-					engine={this.props.engine}
-				>
+					engine={this.props.engine}>
 					<S.Port />
 				</PortWidget>
 			</div>

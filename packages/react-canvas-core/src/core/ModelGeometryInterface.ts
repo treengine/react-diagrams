@@ -1,4 +1,4 @@
-import { Rectangle } from '@projectstorm/geometry';
+import { Rectangle } from '@treenity/geometry';
 
 export interface ModelGeometryInterface {
 	getBoundingBox(): Rectangle;

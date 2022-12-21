@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { DiagramEngine, LinkWidget, PointModel } from '@projectstorm/react-diagrams-core';
+import { DiagramEngine, LinkWidget, PointModel } from '@treenity/react-diagrams-core';
 import { RightAngleLinkFactory } from './RightAngleLinkFactory';
-import { DefaultLinkSegmentWidget } from '@projectstorm/react-diagrams-defaults';
-import { Point } from '@projectstorm/geometry';
+import { DefaultLinkSegmentWidget } from '@treenity/react-diagrams-defaults';
+import { Point } from '@treenity/geometry';
 import { MouseEvent } from 'react';
 import { RightAngleLinkModel } from './RightAngleLinkModel';
 

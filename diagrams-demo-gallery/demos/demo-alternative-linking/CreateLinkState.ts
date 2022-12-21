@@ -1,5 +1,5 @@
-import { Action, ActionEvent, InputType, State } from '@projectstorm/react-canvas-core';
-import { PortModel, LinkModel, DiagramEngine } from '@projectstorm/react-diagrams-core';
+import { Action, ActionEvent, InputType, State } from '@treenity/react-canvas-core';
+import { PortModel, LinkModel, DiagramEngine } from '@treenity/react-diagrams-core';
 import { MouseEvent, KeyboardEvent } from 'react';
 
 /**

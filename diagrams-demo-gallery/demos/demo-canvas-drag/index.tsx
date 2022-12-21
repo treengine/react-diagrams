@@ -1,7 +1,7 @@
 import * as React from 'react';
-import createEngine, { DiagramModel, DefaultNodeModel } from '@projectstorm/react-diagrams';
+import createEngine, { DiagramModel, DefaultNodeModel } from '@treenity/react-diagrams';
 import { DemoButton, DemoWorkspaceWidget } from '../helpers/DemoWorkspaceWidget';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 /**
@@ -31,8 +31,7 @@ class CanvasDragToggle extends React.Component<any, any> {
 					<DemoButton key={2} onClick={this.disableDrag}>
 						Disable canvas drag
 					</DemoButton>
-				]}
-			>
+				]}>
 				<DemoCanvasWidget>
 					<CanvasWidget engine={engine} />
 				</DemoCanvasWidget>

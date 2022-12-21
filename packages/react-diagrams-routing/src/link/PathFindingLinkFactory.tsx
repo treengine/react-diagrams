@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DiagramEngine } from '@projectstorm/react-diagrams-core';
+import { DiagramEngine } from '@treenity/react-diagrams-core';
 import { PathFindingLinkModel } from './PathFindingLinkModel';
 import { PathFindingLinkWidget } from './PathFindingLinkWidget';
 import defer from 'lodash-es/defer';
@@ -10,7 +10,7 @@ import get from 'lodash-es/get';
 import minBy from 'lodash-es/minBy';
 import maxBy from 'lodash-es/maxBy';
 import * as Path from 'paths-js/path';
-import { DefaultLinkFactory } from '@projectstorm/react-diagrams-defaults';
+import { DefaultLinkFactory } from '@treenity/react-diagrams-defaults';
 import {
 	AbstractDisplacementState,
 	AbstractFactory,
@@ -18,7 +18,7 @@ import {
 	FactoryBank,
 	InputType,
 	ListenerHandle
-} from '@projectstorm/react-canvas-core';
+} from '@treenity/react-canvas-core';
 import { PATH_FINDING_LINK_FACTORY_NAME } from './Names';
 
 export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkModel> {

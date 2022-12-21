@@ -1,6 +1,6 @@
-import { DefaultLinkModel, DefaultLinkModelOptions } from '@projectstorm/react-diagrams-defaults';
-import { PointModel } from '@projectstorm/react-diagrams-core';
-import { DeserializeEvent } from '@projectstorm/react-canvas-core';
+import { DefaultLinkModel, DefaultLinkModelOptions } from '@treenity/react-diagrams-defaults';
+import { PointModel } from '@treenity/react-diagrams-core';
+import { DeserializeEvent } from '@treenity/react-canvas-core';
 import { RIGHT_ANGE_LINK_FACTORY_NAME } from './Names';
 
 export class RightAngleLinkModel extends DefaultLinkModel {

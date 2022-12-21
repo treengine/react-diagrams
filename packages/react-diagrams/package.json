@@ -31,7 +31,8 @@
 	"dependencies": {
 		"@treenity/react-diagrams-core": "^6.7.9",
 		"@treenity/react-diagrams-defaults": "^6.7.9",
-		"@treenity/react-diagrams-routing": "^6.7.9"
-	},
+		"@treenity/react-diagrams-routing": "^6.7.9",
+    "@treenity/react-canvas-core": "^6.7.9"
+  },
 	"gitHead": "bb878657ba0c2f81764f32901fd96158a0f8352e"
 }

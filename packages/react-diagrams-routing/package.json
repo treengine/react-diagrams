@@ -32,7 +32,8 @@
 	"dependencies": {
 		"@treenity/geometry": "^6.7.9",
 		"@treenity/react-diagrams-core": "^6.7.9",
-		"@treenity/react-diagrams-defaults": "^6.7.9"
+		"@treenity/react-diagrams-defaults": "^6.7.9",
+    "@treenity/react-canvas-core": "^6.7.9"
 	},
 	"peerDependencies": {
 		"dagre": "^0.8.5",

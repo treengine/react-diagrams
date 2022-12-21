@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DiagramEngine } from '@projectstorm/react-diagrams-core';
+import { DiagramEngine } from '@treenity/react-diagrams-core';
 import { DefaultNodeModel } from './DefaultNodeModel';
 import { DefaultPortLabel } from '../port/DefaultPortLabelWidget';
 import styled from '@emotion/styled';
@@ -67,8 +67,7 @@ export class DefaultNodeWidget extends React.Component<DefaultNodeProps> {
 			<S.Node
 				data-default-node-name={this.props.node.getOptions().name}
 				selected={this.props.node.isSelected()}
-				background={this.props.node.getOptions().color}
-			>
+				background={this.props.node.getOptions().color}>
 				<S.Title>
 					<S.TitleName>{this.props.node.getOptions().name}</S.TitleName>
 				</S.Title>

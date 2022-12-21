@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PortModel } from './PortModel';
 import { DiagramEngine } from '../../DiagramEngine';
-import { ListenerHandle, Toolkit } from '@projectstorm/react-canvas-core';
+import { ListenerHandle, Toolkit } from '@treenity/react-canvas-core';
 
 export interface PortProps {
 	port: PortModel;
@@ -62,8 +62,7 @@ export class PortWidget extends React.Component<React.PropsWithChildren<PortProp
 				className={`port ${this.props.className || ''}`}
 				data-name={this.props.port.getName()}
 				data-nodeid={this.props.port.getNode().getID()}
-				{...this.getExtraProps()}
-			>
+				{...this.getExtraProps()}>
 				{this.props.children}
 			</div>
 		);

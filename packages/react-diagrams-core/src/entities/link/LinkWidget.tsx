@@ -3,7 +3,7 @@ import { DiagramEngine } from '../../DiagramEngine';
 import { LinkModel } from './LinkModel';
 import { PointModel } from './PointModel';
 import { LabelWidget } from '../label/LabelWidget';
-import { BaseEntityEvent, BasePositionModel, ListenerHandle, PeformanceWidget } from '@projectstorm/react-canvas-core';
+import { BaseEntityEvent, BasePositionModel, ListenerHandle, PeformanceWidget } from '@treenity/react-canvas-core';
 import { PortModel } from '../port/PortModel';
 
 export interface LinkProps {

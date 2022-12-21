@@ -1,6 +1,6 @@
-import { NodeModel, NodeModelGenerics, PortModelAlignment } from '@projectstorm/react-diagrams-core';
+import { NodeModel, NodeModelGenerics, PortModelAlignment } from '@treenity/react-diagrams-core';
 import { DefaultPortModel } from '../port/DefaultPortModel';
-import { BasePositionModelOptions, DeserializeEvent } from '@projectstorm/react-canvas-core';
+import { BasePositionModelOptions, DeserializeEvent } from '@treenity/react-canvas-core';
 
 export interface DefaultNodeModelOptions extends BasePositionModelOptions {
 	name?: string;

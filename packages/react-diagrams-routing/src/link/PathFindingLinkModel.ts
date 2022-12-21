@@ -1,4 +1,4 @@
-import { DefaultLinkModel, DefaultLinkModelOptions } from '@projectstorm/react-diagrams-defaults';
+import { DefaultLinkModel, DefaultLinkModelOptions } from '@treenity/react-diagrams-defaults';
 import { PATH_FINDING_LINK_FACTORY_NAME } from './Names';
 
 export class PathFindingLinkModel extends DefaultLinkModel {

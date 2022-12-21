@@ -1,6 +1,6 @@
 import * as React from 'react';
-import createEngine, { DiagramModel, DefaultNodeModel } from '@projectstorm/react-diagrams';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
+import createEngine, { DiagramModel, DefaultNodeModel } from '@treenity/react-diagrams';
+import { CanvasWidget } from '@treenity/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 /**
