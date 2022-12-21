@@ -1,6 +1,6 @@
 {
-	"name": "@projectstorm/react-diagrams-demo",
-	"version": "6.7.7",
+	"name": "@treenity/react-diagrams-demo",
+	"version": "6.7.8",
 	"author": "dylanvorster",
 	"license": "MIT",
 	"private": true,
