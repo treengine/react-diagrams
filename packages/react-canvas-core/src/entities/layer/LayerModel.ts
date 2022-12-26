@@ -38,7 +38,7 @@ export abstract class LayerModel<G extends LayerModelGenerics = LayerModelGeneri
 		super.deserialize(event);
 		this.options.isSvg = !!event.data.isSvg;
 		this.options.transformed = !!event.data.transformed;
-		Object.values(event.data.models).forEach(event.data.models, (model) => {
+		Object.values(event.data.models).forEach((model: any) => {
 			const modelOb = this.getChildModelFactoryBank(event.engine).getFactory(model.type).generateModel({
 				initialConfig: model
 			});
