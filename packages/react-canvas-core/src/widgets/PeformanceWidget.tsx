@@ -1,5 +1,5 @@
 import * as React from 'react';
-import isEqual from 'lodash-es/isEqual';
+import isEqual from 'lodash/isEqual';
 import { BaseModel } from '../core-models/BaseModel';
 
 export interface PeformanceWidgetProps {

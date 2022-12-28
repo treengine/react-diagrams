@@ -1,6 +1,6 @@
 import { Action, ActionEvent, InputType } from '../core-actions/Action';
 import { KeyboardEvent } from 'react';
-import isEqual from 'lodash-es/isEqual';
+import isEqual from 'lodash/isEqual';
 
 export interface DeleteItemsActionOptions {
 	keyCodes?: number[];
