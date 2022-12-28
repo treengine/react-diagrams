@@ -1,6 +1,6 @@
 {
 	"name": "@treenity/react-diagrams-routing",
-	"version": "6.7.13",
+	"version": "6.7.14",
 	"author": "dylanvorster",
 	"license": "MIT",
 	"repository": {
@@ -30,10 +30,10 @@
 	"module": "./dist/index.js",
 	"typings": "./dist/@types/index",
 	"dependencies": {
-		"@treenity/geometry": "^6.7.13",
-		"@treenity/react-canvas-core": "^6.7.13",
-		"@treenity/react-diagrams-core": "^6.7.13",
-		"@treenity/react-diagrams-defaults": "^6.7.13"
+		"@treenity/geometry": "^6.7.14",
+		"@treenity/react-canvas-core": "^6.7.14",
+		"@treenity/react-diagrams-core": "^6.7.14",
+		"@treenity/react-diagrams-defaults": "^6.7.14"
 	},
 	"peerDependencies": {
 		"dagre": "^0.8.5",
