@@ -1,7 +1,7 @@
 import { CanvasEngine } from '../CanvasEngine';
 import { Action, ActionEvent, InputType } from '../core-actions/Action';
 import { SyntheticEvent } from 'react';
-import intersection from 'lodash/intersection';
+import { intersection } from 'lodash';
 
 export interface StateOptions {
 	name: string;

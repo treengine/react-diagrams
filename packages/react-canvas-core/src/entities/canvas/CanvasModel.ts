@@ -1,4 +1,4 @@
-import flatMap from 'lodash/flatMap';
+import { flatMap } from 'lodash';
 import {
 	BaseEntity,
 	BaseEntityEvent,

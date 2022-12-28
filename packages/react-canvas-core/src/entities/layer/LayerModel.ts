@@ -4,8 +4,8 @@ import { CanvasEngine } from '../../CanvasEngine';
 import { FactoryBank } from '../../core/FactoryBank';
 import { AbstractModelFactory } from '../../core/AbstractModelFactory';
 import { DeserializeEvent } from '../../core-models/BaseEntity';
-import mapValues from 'lodash/mapValues';
-import flatMap from 'lodash/flatMap';
+import { mapValues } from 'lodash';
+import { flatMap } from 'lodash';
 
 export interface LayerModelOptions extends BaseModelOptions {
 	isSvg?: boolean;

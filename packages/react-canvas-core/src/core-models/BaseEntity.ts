@@ -1,5 +1,5 @@
 import { Toolkit } from '../Toolkit';
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep } from 'lodash';
 import { CanvasEngine } from '../CanvasEngine';
 import { BaseEvent, BaseListener, BaseObserver } from '../core/BaseObserver';
 import { BaseModel } from './BaseModel';

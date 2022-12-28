@@ -1,4 +1,4 @@
-import flatMap from 'lodash/flatMap';
+import { flatMap } from 'lodash';
 import { LinkModel } from '../entities/link/LinkModel';
 import { NodeModel } from '../entities/node/NodeModel';
 import {
