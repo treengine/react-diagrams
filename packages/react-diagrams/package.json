@@ -1,6 +1,6 @@
 {
 	"name": "@treenity/react-diagrams",
-	"version": "6.7.11",
+	"version": "6.7.12",
 	"author": "dylanvorster",
 	"license": "MIT",
 	"repository": {
@@ -29,10 +29,10 @@
 	"module": "./dist/index.js",
 	"typings": "./dist/@types/index",
 	"dependencies": {
-		"@treenity/react-canvas-core": "^6.7.11",
-		"@treenity/react-diagrams-core": "^6.7.11",
-		"@treenity/react-diagrams-defaults": "^6.7.11",
-		"@treenity/react-diagrams-routing": "^6.7.11"
+		"@treenity/react-canvas-core": "^6.7.12",
+		"@treenity/react-diagrams-core": "^6.7.12",
+		"@treenity/react-diagrams-defaults": "^6.7.12",
+		"@treenity/react-diagrams-routing": "^6.7.12"
 	},
 	"gitHead": "bb878657ba0c2f81764f32901fd96158a0f8352e"
 }
