@@ -1,4 +1,4 @@
-import * as PF from 'pathfinding';
+import PF from 'pathfinding';
 import { PathFindingLinkFactory } from '../link/PathFindingLinkFactory';
 import { PointModel } from '@treenity/react-diagrams-core';
 

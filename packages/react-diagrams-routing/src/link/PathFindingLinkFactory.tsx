@@ -9,7 +9,7 @@ import flatMap from 'lodash/flatMap';
 import get from 'lodash/get';
 import minBy from 'lodash/minBy';
 import maxBy from 'lodash/maxBy';
-import * as Path from 'paths-js/path';
+import  Path from 'paths-js/path';
 import { DefaultLinkFactory } from '@treenity/react-diagrams-defaults';
 import {
 	AbstractDisplacementState,
