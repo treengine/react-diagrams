@@ -1,6 +1,6 @@
 {
 	"name": "@treenity/react-diagrams-core",
-	"version": "6.7.15",
+	"version": "6.7.16",
 	"author": "dylanvorster",
 	"license": "MIT",
 	"repository": {
@@ -31,8 +31,8 @@
 	"module": "./dist/index.js",
 	"typings": "./dist/@types/index",
 	"dependencies": {
-		"@treenity/geometry": "^6.7.15",
-		"@treenity/react-canvas-core": "^6.7.15"
+		"@treenity/geometry": "^6.7.16",
+		"@treenity/react-canvas-core": "^6.7.16"
 	},
 	"peerDependencies": {
 		"lodash": "4.*",
