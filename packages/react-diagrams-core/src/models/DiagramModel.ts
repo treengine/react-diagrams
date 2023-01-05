@@ -1,4 +1,4 @@
-import { flatMap } from 'lodash';
+import flatMap from 'lodash/flatMap';
 import { LinkModel } from '../entities/link/LinkModel';
 import { NodeModel } from '../entities/node/NodeModel';
 import {
@@ -76,6 +76,11 @@ export class DiagramModel<G extends DiagramModelGenerics = DiagramModelGenerics>
 		if (!this.activeLinkLayer) {
 			const layers = this.getLinkLayers();
 			if (layers.length === 0) {
+        const activeLinkLayer = this.getActiveLinkLayer();
+
+        this.removeLayer(activeLinkLayer);
+
+
 				this.addLayer(new LinkLayerModel());
 			} else {
 				this.activeLinkLayer = layers[0];

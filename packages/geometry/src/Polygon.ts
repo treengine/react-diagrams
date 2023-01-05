@@ -1,5 +1,5 @@
 import { Point } from './Point';
-import { flatMap } from 'lodash';
+import flatMap from 'lodash/flatMap';
 import { Rectangle } from './Rectangle';
 import { BasePolygon } from './BasePolygon';
 

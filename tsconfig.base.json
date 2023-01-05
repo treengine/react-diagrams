@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "suppressExcessPropertyErrors": true,
     "declaration": true,
     "composite": true,
@@ -10,8 +12,9 @@
     "skipLibCheck": true,
     "jsx": "react",
     "target": "ES6",
-    "module": "commonjs",
+    "module": "es2020",
     "strict": false,
+    "moduleResolution": "Node",
     "lib": [
       "DOM",
       "ES6"
