@@ -1,6 +1,6 @@
 {
 	"name": "@treenity/react-diagrams-demo",
-	"version": "6.7.16",
+	"version": "6.7.17",
 	"author": "dylanvorster",
 	"license": "MIT",
 	"private": true,
@@ -25,7 +25,7 @@
 	"main": "./dist/index.js",
 	"typings": "./dist/@types/index",
 	"dependencies": {
-		"@treenity/react-diagrams": "^6.7.16",
+		"@treenity/react-diagrams": "^6.7.17",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0"
 	},
