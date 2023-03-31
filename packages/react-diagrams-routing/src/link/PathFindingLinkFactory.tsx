@@ -41,31 +41,33 @@ export class PathFindingLinkFactory extends DefaultLinkFactory<PathFindingLinkMo
 	setDiagramEngine(engine: DiagramEngine): void {
 		super.setDiagramEngine(engine);
 
-		// listen for drag changes
-		engine.getStateMachine().registerListener({
-			stateChanged: (event) => {
-				if (event.newState instanceof AbstractDisplacementState) {
-					const deRegister = engine.getActionEventBus().registerAction(
-						new Action<DiagramEngine>({
-							type: InputType.MOUSE_UP,
-							fire: () => {
-								this.calculateRoutingMatrix();
-								engine.repaintCanvas();
-								deRegister();
-							}
-						})
-					);
-				}
-			}
-		});
-		this.listener = engine.registerListener({
-			canvasReady: () => {
-				defer(() => {
-					this.calculateRoutingMatrix();
-					engine.repaintCanvas();
-				});
-			}
-		});
+    if (engine) {
+      // listen for drag changes
+      engine.getStateMachine().registerListener({
+        stateChanged: (event) => {
+          if (event.newState instanceof AbstractDisplacementState) {
+            const deRegister = engine.getActionEventBus().registerAction(
+              new Action<DiagramEngine>({
+                type: InputType.MOUSE_UP,
+                fire: () => {
+                  this.calculateRoutingMatrix();
+                  engine.repaintCanvas();
+                  deRegister();
+                }
+              })
+            );
+          }
+        }
+      });
+      this.listener = engine.registerListener({
+        canvasReady: () => {
+          defer(() => {
+            this.calculateRoutingMatrix();
+            engine.repaintCanvas();
+          });
+        }
+      });
+    }
 	}
 
 	setFactoryBank(bank: FactoryBank<AbstractFactory>): void {
