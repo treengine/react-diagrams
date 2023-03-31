@@ -26,7 +26,6 @@ export default (options: CanvasEngineOptions = {}): DiagramEngine => {
 	engine.getLabelFactories().registerFactory(new DefaultLabelFactory());
 	engine.getNodeFactories().registerFactory(new DefaultNodeFactory()); // i cant figure out why
 	engine.getLinkFactories().registerFactory(new DefaultLinkFactory());
-	engine.getLinkFactories().registerFactory(new PathFindingLinkFactory());
 	engine.getPortFactories().registerFactory(new DefaultPortFactory());
 
 	// register the default interaction behaviours
